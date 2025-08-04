@@ -1,6 +1,26 @@
 import java.util.Scanner;
 
 public class Main {
+    public static boolean length(String pw) {
+        return pw.length() >=8;
+    }
+
+    public static boolean number(String num) {
+        return num.matches(".*\\d.*");
+    }
+
+    public static boolean upperCase(String upc) {
+        return upc.matches(".*[A-Z].*");
+    }
+
+    public static boolean lowerCase(String lc) {
+        return lc.matches(".*[a-z].*");
+    }
+
+    public static boolean symbol(String sym) {
+        return sym.matches(".*[!\"\\#$%&'()*+,\n" + "\\-./:;<=>?@\\[\n" + "\\\\\\]^_`{|}~].*");
+    }
+
     public static void main(String[] args) {
         //scanner and initialisation
         Scanner sc = new Scanner(System.in);
@@ -8,37 +28,36 @@ public class Main {
         String password = sc.nextLine();
         int score = 0;
 
-
         //password length has to be at least 8 characters
-        if(password.length() < 8) {
+        if(!length(password)) {
             System.out.println("Your password must be at least 8 characters");
         } else {
             score++;
         }
 
         //password has to contain at least one number
-        if(!password.matches(".*\\d.*")) {
+        if(!number(password)) {
             System.out.println("Your password must contain at least one number");
         } else {
             score++;
         }
 
         //password has to contain at least one uppercase letter
-        if(!password.matches(".*[A-Z].*")) {
+        if(!upperCase(password)) {
             System.out.println("Your password must contain at least one uppercase letter");
         } else {
             score++;
         }
 
         //password has to contain at least lowercase letter
-        if(!password.matches(".*[a-z].*")) {
+        if(!lowerCase(password)) {
             System.out.println("Your password must contain at least one lowercase letter");
         } else {
             score++;
         }
 
         //password has to contain at lease one symbol
-        if(!password.matches(".*[!\"\\#$%&'()*+,\n" + "\\-./:;<=>?@\\[\n" + "\\\\\\]^_`{|}~].*")) {
+        if(!symbol(password)) {
             System.out.println("Your password must contain at least one symbol");
         } else {
             score++;
@@ -49,7 +68,9 @@ public class Main {
                 password.contains("1234567890") || password.contains("123123") || password.contains("000000") || password.contains("Iloveyou") || password.contains("1234") ||
                 password.contains("1q2w3e4r5t") || password.contains("Qwertyuiop") || password.contains("123") || password.contains("Monkey") || password.contains("Dragon")) {
             System.out.println("Your password strength is 0/5: extremely weak");
-        }
+        } else {
+
+        }//turn this into a method
 
         if (score == 1||score == 2) {
             System.out.println("Your password strength is " + score + "/5: weak.");
