@@ -1,6 +1,14 @@
+/*
+next: continue what should be included: uppercase, lowercase, symbols
+create method for common words
+turn 1st point into methods
+clean code up
+*/
+
 import java.util.Scanner;
 
 public class Main {
+
     public static boolean length(String pw) {
         return pw.length() >=8;
     }
@@ -21,9 +29,20 @@ public class Main {
         return sym.matches(".*[!\"\\#$%&'()*+,\n" + "\\-./:;<=>?@\\[\n" + "\\\\\\]^_`{|}~].*");
     }
 
+    //create a method for containing common words
+
     public static void main(String[] args) {
         //scanner and initialisation
         Scanner sc = new Scanner(System.in);
+        System.out.println("How long should your password be?");
+        String plength = sc.nextLine();
+        System.out.println("What should be included: numbers, uppercase, lowercase, symbols?");
+
+        //generate numbers
+        if(plength.equals("numbers")||plength.equals("Numbers")) {
+            //generate a password with numbers
+        }
+
         System.out.println("Enter your password");
         String password = sc.nextLine();
         int score = 0;
