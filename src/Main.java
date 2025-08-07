@@ -41,6 +41,7 @@ public class Main {
         //generate numbers
         if(plength.equals("numbers")||plength.equals("Numbers")) {
             //generate a password with numbers
+            int randomNum = (int)(Math.random() * 101); //random int
         }
 
         System.out.println("Enter your password");
